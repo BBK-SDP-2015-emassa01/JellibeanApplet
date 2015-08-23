@@ -1,13 +1,10 @@
 package jbeanApplet;
 
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
-import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 
 public class FakeClazz {
 	
-	public void writeSomething(String q){
+	public ArrayList<String> writeSomething(String q){
 		String query = q.replace(" ", "+");
 		GoogleCustomSearchApiApplet gcse = new GoogleCustomSearchApiApplet();
 		gcse.qry = query;
@@ -39,21 +36,23 @@ public class FakeClazz {
 			linkArrayList.add(linkArrayListGoogle.get(i));
 		}
 		System.out.println("Completed 2.");
+		
+		return linkArrayList;
 	
-		PrintWriter writer = null;
-		try {
-			writer = new PrintWriter("AllLinks.txt", "UTF-8");
-		} catch (FileNotFoundException | UnsupportedEncodingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		writer.println("Output from Google, Yahoo and Bing, for query: "
-				+ query);
-		while (!linkArrayList.isEmpty()) {
-			writer.println(linkArrayList.get(0)+"\n");
-			linkArrayList.remove(0);
-		}
-		writer.close();
+//		PrintWriter writer = null;
+//		try {
+//			writer = new PrintWriter("AllLinks.txt", "UTF-8");
+//		} catch (FileNotFoundException | UnsupportedEncodingException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		writer.println("Output from Google, Yahoo and Bing, for query: "
+//				+ query);
+//		while (!linkArrayList.isEmpty()) {
+//			writer.println(linkArrayList.get(0)+"\n");
+//			linkArrayList.remove(0);
+//		}
+//		writer.close();
 	}
 	}
 

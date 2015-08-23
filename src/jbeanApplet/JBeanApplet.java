@@ -8,23 +8,29 @@ import java.awt.Graphics;
 import java.awt.TextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
-import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+
 
 public class JBeanApplet extends Applet implements ActionListener {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	Button okButton;
 	TextField nameField;
+	
+	Button result1;
 
 	public void init() {
 		
 		setLayout(new FlowLayout());
 		okButton = new Button("Search!");
+		
+		
 		nameField = new TextField("", 35);
 
-		add(nameField);
+		add(nameField); 
 		add(okButton);
 
 		okButton.addActionListener(this);
@@ -43,7 +49,13 @@ public class JBeanApplet extends Applet implements ActionListener {
 		}
 		
 		FakeClazz fc = new FakeClazz();
-		fc.writeSomething(nameField.getText());
+		ArrayList<String> resultArrayList = fc.writeSomething(nameField.getText());
+		
+		for(int i = 1; i< resultArrayList.size(); i++){
+		add(new Button(resultArrayList.get(i)));
+		System.out.println(i);
+		}
+		
 	}
 
 }
