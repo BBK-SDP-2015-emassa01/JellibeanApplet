@@ -25,34 +25,16 @@ public class FakeClazz {
 
 		System.out.println("Completed 1.");
 
-		ArrayList<String> linkArrayListYahoo = jshtml.jSoupYahooLinks;
-		ArrayList<String> linkArrayListBing = jshtml.jSoupBingLinks;
-		ArrayList<String> linkArrayListGoogle = gcse.jSoupGoogleLinks;
-
 		ArrayList<String> linkArrayList = new ArrayList<>();
 		for (int i = 0; i < 10; i++) {
-			linkArrayList.add(linkArrayListYahoo.get(i));
-			linkArrayList.add(linkArrayListBing.get(i));
-			linkArrayList.add(linkArrayListGoogle.get(i));
+			linkArrayList.add(jshtml.jSoupYahooLinks.get(i));
+			linkArrayList.add(jshtml.jSoupBingLinks.get(i));
+			linkArrayList.add(gcse.jSoupGoogleLinks.get(i));
 		}
 		System.out.println("Completed 2.");
 		
 		return linkArrayList;
-	
-//		PrintWriter writer = null;
-//		try {
-//			writer = new PrintWriter("AllLinks.txt", "UTF-8");
-//		} catch (FileNotFoundException | UnsupportedEncodingException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//		writer.println("Output from Google, Yahoo and Bing, for query: "
-//				+ query);
-//		while (!linkArrayList.isEmpty()) {
-//			writer.println(linkArrayList.get(0)+"\n");
-//			linkArrayList.remove(0);
-//		}
-//		writer.close();
+
 	}
 	}
 
